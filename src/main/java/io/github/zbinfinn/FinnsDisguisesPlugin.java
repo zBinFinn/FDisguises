@@ -14,8 +14,9 @@ public class FinnsDisguisesPlugin extends JavaPlugin {
     @Override
     public void onLoad() {
         PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
-        PacketEvents.getAPI().load();
         PacketEvents.getAPI().getEventManager().registerListener(new PacketHandler(), PacketListenerPriority.NORMAL);
+        PacketEvents.getAPI().load();
+
         instance = this;
     }
 

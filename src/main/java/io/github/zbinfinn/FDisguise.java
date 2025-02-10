@@ -1,17 +1,20 @@
 package io.github.zbinfinn;
 
-import com.github.retrooper.packetevents.protocol.entity.type.EntityType;
 import com.github.retrooper.packetevents.protocol.entity.type.EntityTypes;
-import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerSpawnLivingEntity;
+import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerSpawnEntity;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 
 public class FDisguise {
-    private final Entity disguise;
+    private final EntityType type;
     public FDisguise(Entity disguise) {
-        this.disguise = disguise;
+        type = disguise.getType();
+    }
+    public FDisguise(EntityType type) {
+        this.type = type;
     }
 
-    public void handle(WrapperPlayServerSpawnLivingEntity packet) {
-        packet.setEntityType(EntityTypes.getByName(disguise.getType().toString()));
+    public void handle(WrapperPlayServerSpawnEntity packet) {
+        packet.setEntityType(EntityTypes.getByName(type.name()));
     }
 }
