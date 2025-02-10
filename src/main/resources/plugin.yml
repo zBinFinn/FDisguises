@@ -1,0 +1,17 @@
+name: FinnsDisguises
+version: 1.0.0
+main: io.github.zbinfinn.FinnsDisguisesPlugin
+description: Finns Disguises (Really Cool)
+author: zBinFinn
+api-version: '1.21.4'
+permissions:
+  use.disguise.commands:
+    description: "This allows you to run the commands to manually disguise things"
+    default: op
+
+commands:
+  disguise:
+    description: "Disguise entities or players as entities or players"
+    usage: "/disguise <uuid of entity to be disguised> <entity to disguise as>"
+    permission: use.disguise.commands
+    permission-message: "Nuh uh"
